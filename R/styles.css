@@ -1,0 +1,1633 @@
+/* styles.css */
+
+/* ==========================================================================
+   1. THEME CONFIGURATION
+   ========================================================================== */
+
+/* Default Variables (The "Base" Layer) */
+:root {
+    --font-main: 'Inter', sans-serif;
+    --font-header: 'Montserrat', sans-serif;
+    --radius-pill: 50px;
+    --bg-dark: #202123;
+    --text-main: #ECECF1;
+    
+    /* Fallback (Narwhal) */
+    --accent-primary: #00bcd4;         
+    --accent-secondary: #008ba3;       
+    --glow-color: rgba(0, 188, 212, 0.5); 
+    --glow-medium: rgba(0, 188, 212, 0.4); /* Added this */
+    --glow-subtle: rgba(0, 188, 212, 0.2); /* Added this */
+    --search-btn-text: #ffffff;
+}
+
+/* --- THEME 1: NARWHAL (Cyan) --- */
+body.theme-narwhal {
+    --accent-primary: #00bcd4;
+    --accent-secondary: #008ba3;
+    --glow-color: rgba(0, 188, 212, 0.5);
+    --glow-medium: rgba(0, 188, 212, 0.4);
+    --glow-subtle: rgba(0, 188, 212, 0.2);
+    --search-btn-text: #ffffff;
+}
+
+/* --- THEME 2: DINO (Forest Green) --- */
+body.theme-dino {
+    --accent-primary: #4caf50;
+    --accent-secondary: #1b5e20;
+    --glow-color: rgba(76, 175, 80, 0.5);
+    --glow-medium: rgba(76, 175, 80, 0.4);
+    --glow-subtle: rgba(76, 175, 80, 0.2);
+    --search-btn-text: #ffffff;
+}
+
+/* --- THEME 3: FROG (Toxic Lime) --- */
+body.theme-frog {
+    --accent-primary: #76ff03;
+    --accent-secondary: #33691e;
+    --glow-color: rgba(118, 255, 3, 0.5);
+    --glow-medium: rgba(118, 255, 3, 0.4);
+    --glow-subtle: rgba(118, 255, 3, 0.2);
+    --search-btn-text: #000000;
+}
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+
+:root {
+    /* 1. THE FIX: Tell DataTables the background is DARK, not white. */
+    --dt-html-background: #202123 !important; 
+
+    /* 2. Neutralize Bootstrap's interference */
+    /* This stops the theme from trying to apply its own grey/white hover effects */
+    --bs-table-accent-bg: transparent !important; 
+    --bs-table-hover-bg: transparent !important;
+    --bs-table-striped-bg: transparent !important;
+}
+
+/* 1. IMPORT: Switched to Inter (Clean UI) + Montserrat (Headers)
+      Removed JetBrains Mono entirely. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700&display=swap');
+
+body {
+    /* 2. BACKGROUND: Flat dark slate (#202123) is cleaner than gradients.
+       It reduces visual noise, which is key to minimalism. */
+    background-color: #202123 !important;
+    background-image: none !important; 
+    
+    /* 3. TYPOGRAPHY: Inter is variable width (not code-like) and easy to read. */
+    font-family: 'Inter', sans-serif !important;
+    color: #ECECF1 !important; /* Soft off-white for less eye strain */
+    height: 100%;
+    margin: 0;
+}
+
+
+
+/* ==========================================================================
+   TYPOGRAPHY & HEADERS
+   ========================================================================== */
+
+/* Replaced "Code" aesthetic with "Modern App" aesthetic */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600; /* Semi-bold for structure */
+    letter-spacing: -0.5px; /* Tighter tracking looks more professional */
+    color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   INPUTS & CONTROLS (The "Pill" Look)
+   ========================================================================== */
+
+/* This targets your search bar to match the "Search Results" button you liked */
+#searchTerm, .form-control {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #2A2B32 !important; /* Slightly lighter than body */
+    border: 1px solid #3E3E45 !important;
+    color: white !important;
+    
+    /* THE KEY CHANGE: 50px radius creates the "Pill" shape */
+    border-radius: 50px !important; 
+    padding-left: 20px; /* Give text some breathing room inside the pill */
+}
+
+/* Remove the blue glow on click (too distinct), replace with subtle border */
+#searchTerm:focus, .form-control:focus {
+    box-shadow: none !important;
+    border-color: var(--accent-secondary) !important; /* The Teal accent from your image */
+}
+
+
+
+
+/* ==========================================================================
+   DATATABLES STYLES (Modern Minimalist / Floating Pills Edition)
+   ========================================================================== */
+
+/* --- Color for the main datatables container --- */
+div.datatables {
+  color: #ECECF1 !important; /* Off-white for softer contrast */
+}
+
+/* --- Background and text color for the main table --- */
+table.dataTable {
+  color: #ECECF1 !important;
+  background-color: transparent !important;
+  border-collapse: separate !important; /* Required for border-radius on rows */
+  border-spacing: 0 8px !important;     /* Gap between the floating rows */
+  font-family: 'Inter', sans-serif !important; /* The new standard body font */
+}
+
+/* --- Header row text and background color --- */
+table.dataTable thead th,
+table.dataTable thead td { /* Added td just in case */
+  color: var(--accent-secondary) !important;             /* Your Teal Accent */
+  border-bottom: 1px solid #3E3E45 !important; 
+  background-color: #202123 !important;  /* Match body bg (FixedHeader needs opacity) */
+  
+  font-family: 'Montserrat', sans-serif !important; 
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  
+  /* --- THE FIX: TIGHTEN THE PADDING --- */
+  padding-top: 2px !important;    /* Overrides Bootstrap's 12px */
+  padding-bottom: 2px !important; /* Overrides your old 15px */
+  
+  /* Force Height Compactness */
+  line-height: 1.1 !important;
+  vertical-align: middle !important;
+  height: auto !important;
+}
+
+/* Optional: If the Sort Arrows are making it tall, tame them */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+  background-position: right 10px center !important; 
+}
+
+/* --- Table data cell text and background color --- */
+table.dataTable tbody td {
+  color: #ECECF1 !important;
+  border: none !important;               /* Kill the grid lines */
+  background-color: transparent !important;
+  padding: 18px 15px !important;         /* Increased breathing room */
+  vertical-align: middle;
+  font-size: 0.95em;
+}
+
+/* --- THE FLOATING ROW (PILL) --- */
+table.dataTable.display tbody tr {
+  background-color: #2A2B32 !important;  /* Surface Lighter than background */
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Very subtle shadow */
+}
+
+/* --- Round the corners of the row (Softened Radius) --- */
+table.dataTable tbody tr td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+table.dataTable tbody tr td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+
+
+/* ==========================================================================
+   PAGINATION & CONTROLS (Unified Theme)
+   ========================================================================== */
+
+/* Length Menu (Dropdown) */
+.dataTables_wrapper .dataTables_length select {
+  background-color: #2A2B32 !important;
+  color: #ECECF1 !important;
+  border: 1px solid #3E3E45 !important;
+  border-radius: 50px !important; /* Full pill shape */
+  padding: 5px 10px;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Filter/Search Input (if not custom) */
+.dataTables_wrapper .dataTables_filter input {
+  border-radius: 50px !important;
+  background-color: #2A2B32 !important;
+  border: 1px solid #3E3E45 !important;
+  color: white !important;
+}
+
+/* Pagination Buttons */
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+  background-color: transparent !important;
+  color: #ECECF1 !important;
+  border: 1px solid transparent !important; /* Cleaner look without borders */
+  border-radius: 50px !important; /* Circles/Pills */
+  margin: 0 2px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9em;
+}
+
+/* Active Page Button */
+.dataTables_wrapper .dataTables_paginate a.paginate_button.current {
+  background-color: var(--accent-secondary) !important;  /* TEAL Background */
+  color: #111 !important;  /* Dark text for contrast on teal */
+  border-color: var(--accent-secondary) !important;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 191, 165, 0.4); /* Soft teal glow */
+}
+
+/* Hover over non-active page buttons */
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
+  background-color: #3E3E45 !important;
+  color: #fff !important;
+  border-color: #3E3E45 !important;
+}
+
+/* ==========================================================================
+   HYPERLINK STYLES
+   ========================================================================== */
+
+/* --- Style for the hyperlinks in the table cells (Title URLs) --- */
+table.dataTable tbody td a {
+  color: var(--accent-primary) !important; /* Moonstone blue for hyperlinks */
+  text-decoration: none !important; /* Remove the default underline if you prefer */
+}
+
+/* --- Style for the hyperlinks in the table cells (Title URLs) on hover --- */
+table.dataTable tbody td a:hover {
+  color: var(--accent-secondary) !important; /* Slightly darker on hover */
+  text-decoration: underline !important; /* Add underline on hover for better feedback */
+}
+
+/* ==========================================================================
+   FULL WIDTH SEARCH AREA STYLES (Glassmorphism Edition)
+   ========================================================================== */
+
+/* --- Container for the full width search area --- */
+.full-width-search-area {
+  max-width: 80vw;
+  height: auto;
+  min-height: 20vh;
+  margin: 10vh auto;
+  
+  /* --- GLASSMORPHISM UPGRADE --- */
+  background: rgba(34, 34, 34, 0.6);   /* See-through dark */
+  backdrop-filter: blur(10px);         /* Frosted glass blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Faint highlight border */
+  
+  border-radius: 20px;                 /* Softer corners */
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  
+  /* Soft ambient glow instead of hard shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- Heading (Title) - Softened Edition --- */
+.full-width-search-area h2 {
+  /* 1. Typography: Lighter and Friendly */
+  font-family: 'Montserrat', sans-serif !important; 
+  font-weight: 500;       /* Reduced from 700 (Bold) to 500 (Medium) */
+  font-size: 3.0em;       /* Keep the size large */
+  letter-spacing: -1px;   /* Negative spacing is tighter and more modern */
+  
+  /* 2. Casing: The biggest change. "Shouting" -> "Conversation" */
+  text-transform: none;   /* Removes ALL CAPS */
+  
+  /* 3. Color & Glow */
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 25px;
+  
+  /* A very soft, diffuse glow instead of a hard neon shine */
+  text-shadow: 0 10px 30px rgba(255, 255, 255, 0.15); 
+}
+
+/* ==========================================================================
+   SEARCH BAR LAYOUT (Compact & Clean Edition)
+   ========================================================================== */
+
+/* --- Container for the search input and icons --- */
+.search-container-with-icons {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 1em;
+}
+
+/* --- Grouping for the search input and button --- */
+.search-group {
+  display: flex;
+  gap: 12px;       /* Reduced gap slightly */
+  width: 85%;      /* Slightly narrower for a tighter feel */
+  max-width: 800px;
+  align-items: center; 
+}
+
+/* --- Form group wrapper (The "80%") --- */
+.search-group > div.form-group {
+  flex-grow: 1 !important; 
+  width: auto !important;
+  margin-bottom: 0 !important;
+}
+.search-group > div.form-group > div.shiny-input-container {
+  width: 100% !important;
+}
+
+/* --- Search Input Integration (Compact) --- */
+.search-group #searchTerm {
+  width: 100%;
+  /* REDUCED PADDING: Down from 18px to 12px (~30% smaller) */
+  padding: 12px 20px !important; 
+  
+  /* REDUCED FONT: Down from 1.1em to 1em */
+  font-size: 1em;
+  font-family: 'JetBrains Mono', monospace; 
+  
+  background-color: #1E1E1E !important; 
+  border: 1px solid #333 !important;
+  
+  /* COLOR CHANGE: Soft White (#ECECF1) instead of Cyan */
+  color: #ECECF1 !important;            
+  border-radius: 50px !important;
+  
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); 
+  transition: all 0.3s ease;
+}
+
+/* Focus State */
+.search-group #searchTerm:focus {
+  border-color: var(--accent-primary) !important;
+  background-color: #151515 !important; 
+  /* Kept the cyan glow on the border only, not the text */
+  box-shadow: 0 0 10px var(--glow-subtle), inset 0 2px 5px rgba(0,0,0,0.5) !important;
+  outline: none;
+}
+
+/* --- The Search Button (Compact & Theme Aware) --- */
+.search-group #searchButton {
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 12px 28px !important; 
+  font-size: 1em;       
+  font-weight: 600;     
+  
+  /* THEME VARIABLES */
+  background-color: var(--accent-primary) !important; 
+  color: var(--search-btn-text) !important; 
+  border: none !important;
+  border-radius: 50px !important;
+  cursor: pointer;
+  
+  /* Theme Shadow */
+  box-shadow: 0 0 8px var(--glow-color); 
+  transition: all 0.2s ease;
+}
+
+.search-group #searchButton:hover {
+  background-color: #fff !important;
+  color: var(--accent-primary) !important; 
+  box-shadow: 0 0 8px var(--glow-color);
+  transform: translateY(-1px);
+}
+
+/* --- Icons (Floating & Glowing) --- */
+.search-container-with-icons #completionIconLeft img,
+.search-container-with-icons #completionIconRight img {
+  max-height: 5vh; 
+  opacity: 0.8;
+  /* THEME GLOW */
+  filter: drop-shadow(0 0 5px var(--accent-primary)); 
+  transform: translateY(-50px); 
+}
+
+/* ==========================================================================
+   SEARCH FEEDBACK AREA STYLES
+   ========================================================================== */
+
+/* --- Container for the search feedback message and icons --- */
+.search-feedback {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: white;
+  width: 90%;
+  padding-top: 0.5em !important;
+  padding-bottom: 0 !important;
+  margin-top: 0.5em !important;
+  margin-bottom: 0 !important;
+  line-height: 1.2;
+  flex-grow: 1;
+  font-size: 0.9em;
+}
+
+/* --- Container for the left completion icon in feedback area --- */
+.search-feedback > div.completion-icon-left,
+/* --- Container for the right completion icon in feedback area --- */
+.search-feedback > div.completion-icon-right,
+/* --- Span containing the search result message --- */
+.search-feedback > span {
+  align-self: flex-start;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* --- Style for images within the left completion icon (repeated for specificity) --- */
+#completionIconLeft img,
+/* --- Style for images within the right completion icon (repeated for specificity) --- */
+#completionIconRight img {
+  max-height: 20vh !important;
+  height: auto !important;
+  width: auto !important;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- Class to hide the search feedback area --- */
+.search-feedback.hidden {
+  display: none !important;
+}
+
+/* --- Style for the left completion icon container (flex alignment) --- */
+.completion-icon-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: auto;
+}
+
+/* --- Style for the right completion icon container (flex alignment) --- */
+.completion-icon-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: auto;
+}
+
+/* --- Style for the search result message text --- */
+.search-feedback > span {
+  flex-grow: 1;
+  text-align: center;
+  line-height: inherit;
+  align-self: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ==========================================================================
+   DOWNLOAD OPTIONS STYLES
+   ========================================================================== */
+
+/* --- Container for the download options (buttons) --- */
+.download-options {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  display: flex;
+  gap: 0.8em;
+  justify-content: center;
+  font-size: 0.9em;
+}
+
+/* --- Style for the download buttons --- */
+.download-options button {
+  padding: 0.4em 0.8em;
+}
+
+/* ==========================================================================
+   AFFILIATION DETAILS STYLES
+   ========================================================================== */
+
+/* --- Style for the affiliation details text (hidden by default) --- */
+.affiliation-details {
+  margin-left: 1em;
+  font-size: 0.9em;
+  color: #aaa; /* Adjust color as needed */
+}
+
+/* ==========================================================================
+   GENERIC HIDDEN CLASS
+   ========================================================================== */
+
+/* --- Class to hide elements --- */
+.hidden {
+  display: none;
+}
+
+/* ==========================================================================
+   MISCELLANEOUS STYLES
+   ========================================================================== */
+
+/* --- Additional styles from previous discussions (html, body) --- */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* --- Style for the author names (expand trigger) --- */
+.author-expand-trigger {
+  cursor: pointer;
+  text-decoration: underline; /* Make it look clickable */
+  color: var(--accent-primary) !important; /* Moonstone blue for author names */
+}
+
+/* --- Style for the author names (expand trigger) on hover --- */
+.author-expand-trigger:hover {
+  color: var(--accent-secondary) !important; /* Slightly darker on hover */
+}
+
+/* --- Disable row selection on click --- */
+table.dataTable tbody tr.selected {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* --- Style for row hover effect (light grey background) --- */
+table.dataTable tbody tr:hover {
+  background-color: #f0f0f0 !important; /* A very light grey */
+  cursor: pointer; /* Indicate interactivity */
+}
+
+/* ==========================================================================
+  LOADING OVERLAY STYLES
+  ========================================================================= */
+
+/* --- Style for the loading overlay --- */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  text-align: center; /* Center inline content horizontally */
+  vertical-align: middle; /* Doesn't work directly on block-level elements */
+  z-index: 1001 !important; /* Increased z-index to be below the progress bar by default */
+}
+
+/* --- Pseudo-element to help vertical centering in loading overlay --- */
+.loading-overlay::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+/* --- Container for the loading icon and message --- */
+.loading-icon-container {
+  background-color: var(--accent-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  display: inline-block; /* Allows vertical-align: middle on the overlay to work indirectly */
+  text-align: center; /* Center content within the container */
+}
+
+/* --- Style for the loading icon image --- */
+#loadingIcon {
+  width: 300px; /* Reduced size */
+  height: 300px; /* Reduced size */
+  vertical-align: middle;
+  margin-bottom: 10px; /* Add some space below the icon */
+}
+
+/* --- Style for the loading message text --- */
+#loadingMessage {
+  color: white;
+  font-size: 1.1em;
+}
+
+/* ==========================================================================
+   SHINY NOTIFICATION STYLES (Bottom Right Toast)
+   ========================================================================== */
+
+.shiny-notification {
+  /* Position: Bottom Right */
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  
+  /* Visuals: Sleek Dark Card */
+  width: 350px !important;
+  background-color: #1E1E1E !important;  /* Solid Dark Background */
+  color: #ECECF1 !important;             /* Readable Text */
+  
+  /* The Theme Accent (Left Border) */
+  border: none !important;
+  border-left: 5px solid var(--accent-primary) !important; 
+  border-radius: 4px !important;
+  
+  /* Depth */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+  padding: 15px 20px !important;
+  z-index: 10002 !important;
+  opacity: 0.95 !important;
+}
+
+.shiny-notification-close {
+  color: #888 !important;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.shiny-notification-close:hover {
+  color: #fff !important;
+}
+
+/* --- OPTIONAL: Distinct Warning Style --- */
+/* If you send type="warning", it turns Orange instead of Theme Color */
+.shiny-notification-warning {
+  border-left-color: #F7931A !important; /* Bitcoin Orange */
+}
+
+/* 3. The Progress Bar Container (The "Track") */
+.shiny-progress-notification .progress {
+  height: 12px !important;       /* sleek and thin */
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Faint track */
+  border-radius: 50px !important; /* Pill shape */
+  margin-bottom: 8px !important;  /* Space between bar and text */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5) !important;
+  overflow: hidden !important;    /* Keeps the barber pole inside the rounded corners */
+}
+
+/* 4. The Barber Pole Animation (The "Bar") */
+.shiny-progress-notification .progress-bar {
+  /* A. High Contrast Base Colors */
+  background-color: var(--accent-primary) !important; /* Bright Moonstone */
+  
+  /* B. High Contrast Stripes (Darker Teal) */
+  /* We use repeating-linear-gradient for cleaner math than the transparent overlay method */
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 80, 90, 0.4) 10px, /* Dark Teal Stripe for high contrast */
+    rgba(0, 80, 90, 0.4) 20px
+  ) !important;
+  
+  /* C. The Loop Math (CRITICAL FIX) */
+  /* The pattern repeats every 28.28px (approx) due to 45deg math on 20px stripes. */
+  /* Ideally, we just let the background-size be automatic and animate the POSITION. */
+  background-size: 28px 28px !important; /* Forcing a square tile helps the loop */
+  
+  /* D. The Animation */
+  /* linear is crucial. 1s is the speed. */
+  animation: barberpole 1s linear infinite !important;
+  
+  /* E. The Glow */
+  box-shadow: 0 0 10px var(--glow-intense) !important; /* Increased glow intensity */
+  
+  /* F. Smooth Width Transition */
+  transition: width 0.6s ease-in-out !important;
+}
+
+/* 5. The Animation Keyframes (Seamless Loop) */
+@keyframes barberpole {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    /* We move exactly equal to the background-size width (28px) */
+    background-position: 28px 0;
+  }
+}
+
+/* 6. The Text (Message & Detail) */
+.shiny-progress-notification .progress-text {
+  text-align: center !important;
+  font-family: 'Montserrat', sans-serif !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* readable against any background */
+}
+
+.shiny-progress-notification .progress-message {
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+  color: #fff !important;
+  display: block; /* Force it to its own line */
+  margin-bottom: 2px;
+}
+
+.shiny-progress-notification .progress-detail {
+  font-weight: 300 !important;
+  font-size: 0.9em !important;
+  color: var(--accent-primary) !important; /* Cyan accent for the detail text */
+  opacity: 0.9;
+}
+
+
+
+/* Ensure the tab content doesn't have a hidden overflow */
+.tab-content {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Make the card containing the table expand */
+.card {
+    height: auto !important;
+    min-height: 500px;
+}
+
+/* Optional: Make the Search Bar area stay slightly more compact */
+.full-width-search-area {
+    padding: 20px 0;
+    margin-bottom: 10px;
+}
+
+
+/* Ensure the sticky header has a solid background so text doesn't overlap */
+table.dataTable.fixedHeader-floating,
+table.dataTable.fixedHeader-locked {
+    background-color: #222 !important; /* Matches your 'darkly' theme */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    z-index: 1000; /* Keeps it above the table body but below modals */
+}
+
+
+
+/* Optional: Add a slight shadow to the sticky header for visual depth */
+table.dataTable.fixedHeader-floating {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Prevents the header from being transparent while scrolling */
+table.dataTable.fixedHeader-floating,
+table.dataTable.fixedHeader-locked {
+    background-color: #222 !important; /* Matches bslib 'darkly' theme */
+    z-index: 999; 
+}
+
+/* Ensure the header text is legible */
+.fixedHeader-floating th {
+    color: white !important;
+}
+
+
+
+#results_area {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   THE COMMAND DECK (Tabs + Toolbar Unified)
+   ========================================================================== */
+
+.tabbable { position: relative !important; }
+
+/* 2. The Dock */
+ul#main_app_tabs.nav-pills {
+    display: flex !important;
+    width: 100%;
+    justify-content: flex-start !important; 
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;               
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 0px !important; 
+    border-bottom: none !important;           
+    margin-top: 15px;
+    padding-right: 400px !important; 
+    gap: 10px;
+}
+
+/* 3. The Tabs */
+ul#main_app_tabs.nav-pills .nav-link {
+    background-color: #222 !important;      
+    border: 1px solid #555 !important;      
+    color: #eee !important;                 
+    border-radius: 20px !important;         
+    padding: 6px 20px;                      
+    font-size: 0.95em;
+    transition: all 0.2s ease-in-out;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); 
+}
+
+/* 5. Active Tab State (VARIABLE GLOW RESTORED) */
+ul#main_app_tabs.nav-pills .nav-link.active {
+    background-color: #222 !important;      
+    border-color: var(--accent-primary) !important;       
+    color: var(--accent-primary) !important;              
+    /* Uses new variables */
+    box-shadow: 0 0 10px var(--glow-medium), inset 0 0 5px var(--glow-subtle) !important;
+}
+
+/* ==========================================================================
+   DATATABLES TOOLBAR (Lifted & Styled)
+   ========================================================================== */
+
+.dt-top-toolbar {
+    position: absolute !important;
+    top: 12px;  
+    right: 8px;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+/* INPUT FOCUS STATE (VARIABLE GLOW RESTORED) */
+.dataTables_wrapper .dataTables_filter input:focus,
+.dataTables_wrapper .dataTables_length select:focus {
+    border-color: var(--accent-primary) !important;       
+    box-shadow: 0 0 8px var(--glow-medium) !important; 
+    width: 250px; 
+}
+
+/* --- THE INPUTS (Dark Pill Style) --- */
+/* Target the inputs specifically to override default white boxes */
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    background-color: #222 !important;      /* Dark Background */
+    border: 1px solid #555 !important;      /* Subtle Border */
+    color: #eee !important;                 /* Light Text */
+    border-radius: 20px !important;         /* Pill Shape */
+    padding: 6px 10px !important;           /* Comfortable padding */
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    height: auto !important;
+}
+
+
+/* --- LABELS ("Show" text) --- */
+.dataTables_length label {
+    margin: 0;
+    color: #aaa !important; /* Muted text so it doesn't distract */
+    font-weight: normal;
+}
+
+
+/* ==========================================================================
+   LANDING PAGE STYLES
+   ========================================================================== */
+/* Replace existing .landing-card and .full-width-search-area styles */
+
+.landing-card {
+    /* REMOVE solid borders */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Very faint border */
+    
+    /* ADD Glassmorphism */
+    background: rgba(30, 30, 30, 0.4); /* Low opacity dark */
+    backdrop-filter: blur(12px);       /* The "Frosted Glass" effect */
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Soft Shadow instead of hard lines */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 20px; /* Soften corners to match pills */
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+}
+
+.landing-card:hover {
+    transform: translateY(-5px);
+    /* Moonstone glow on hover only */
+    box-shadow: 0 8px 25px var(--glow-subtle); 
+    border-color: var(--glow-subtle);
+}
+
+/* ==========================================================================
+   MODAL STYLING (Dark Pill Inputs)
+   ========================================================================== */
+
+/* 1. The Input Boxes (Text & Number) */
+.modal-content input.form-control {
+    background-color: #2b2b2b !important;   /* Dark background */
+    border: 1px solid #555 !important;      /* Subtle border */
+    color: #eee !important;                 /* Light text */
+    border-radius: 25px !important;         /* Full Pill Shape */
+    padding: 10px 20px !important;          /* Generous padding */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); /* Inner shadow for depth */
+}
+
+/* 2. Focus State (Moonstone Glow) */
+.modal-content input.form-control:focus {
+    border-color: var(--accent-primary) !important;       /* Moonstone border */
+    box-shadow: 0 0 10px var(--glow-medium) !important;
+    background-color: #333 !important;      /* Slightly lighter on focus */
+}
+
+/* 3. Disabled Inputs (The "Integrated" fields) */
+/* We make these look 'etched' into the background */
+.modal-content input.form-control:disabled {
+    background-color: #1a1a1a !important;   /* Very dark background */
+    color: #00e676 !important;              /* Green text to match checkmark */
+    border-color: #333 !important;          /* Faint border */
+    opacity: 1 !important;                  /* Force visibility */
+    font-style: italic;                     /* Stylistic choice for status */
+    cursor: default;
+}
+
+/* 4. Polish the Modal borders to blend in */
+.modal-header, .modal-footer {
+    border-color: #444 !important;
+}
+
+/* 5. Close Button (X) Fix */
+.modal-header .close {
+    color: #fff !important;
+    opacity: 0.7;
+    text-shadow: none;
+}
+.modal-header .close:hover {
+    opacity: 1;
+    color: var(--accent-primary) !important; /* Moonstone hover */
+}
+
+
+/* ==========================================================================
+   DARK PILL THEME (Inputs & Dropdowns)
+   ========================================================================== */
+
+/* --- 1. GENERAL INPUTS (Text, Numeric, Date fields) --- */
+.form-control {
+  background-color: #2b2b2b !important; /* Dark Grey Background */
+  color: #ffffff !important;             /* White Text */
+  border: 1px solid #555555 !important;  /* Subtle Border */
+  border-radius: 50px !important;        /* The "Pill" Shape */
+  padding-left: 15px !important;         /* Text breathing room */
+}
+
+/* Remove white background on focus & add glow */
+.form-control:focus {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: var(--accent-primary) !important; /* Narwhal Cyan Highlight */
+  box-shadow: 0 0 5px var(--glow-medium) !important;
+  outline: none !important;
+}
+
+/* --- 2. LABELS (Date:, Cell Type:, etc.) --- */
+.control-label {
+  color: #e0e0e0 !important; 
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left: 10px; /* Align label with the rounded start of the pill */
+}
+
+/* --- 3. SELECTIZE INPUTS (The Dropdowns) --- */
+/* The main box */
+.selectize-input {
+  background-color: #2b2b2b !important;
+  border: 1px solid #555555 !important;
+  border-radius: 50px !important;
+  box-shadow: none !important;
+  padding-left: 15px !important;
+  line-height: 24px !important; /* Vertically center text */
+}
+
+/* The text you type/select */
+.selectize-input > input {
+  color: white !important;
+}
+
+/* The selected items (pills inside pills) */
+.selectize-control.multi .selectize-input > div {
+  background-color: var(--accent-primary) !important; /* Narwhal Cyan */
+  color: white !important;
+  border-radius: 15px !important;
+  border: none !important;
+  padding: 2px 10px !important;
+  text-shadow: none !important;
+  margin-right: 5px !important;
+}
+
+/* The Dropdown Menu (the list that appears) */
+.selectize-dropdown {
+  background-color: #333333;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 15px; /* Matches the pill aesthetic */
+  padding: 5px 0;
+  margin-top: 5px;
+}
+
+/* Menu Items */
+.selectize-dropdown .option {
+  padding: 8px 15px;
+}
+
+/* Hover/Active state in the menu */
+.selectize-dropdown .active {
+  background-color: #555 !important;
+  color: var(--accent-primary) !important; /* Cyan text on hover */
+}
+
+/* --- 4. DATE RANGE SPECIFICS --- */
+/* The 'to' text between dates */
+.input-group-addon {
+  background-color: transparent !important;
+  border: none !important;
+  color: #e0e0e0 !important;
+  font-weight: bold;
+}
+
+/* --- 5. NUMERIC INPUT ARROWS --- */
+/* Hide default ugly arrows */
+input[type=number] {
+  -moz-appearance: textfield; 
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+/* --- Bitcoin Dark Pill Style --- */
+
+/* 1. The Normal State (Dark Pill + Glow) */
+.btn-btc-pill {
+  background-color: #1E1E1E !important; /* Very dark grey core */
+  color: #F7931A !important;           /* Orange Text & Icon */
+  border: 2px solid #F7931A !important; /* Hard Orange Border */
+  border-radius: 50px !important;       /* Full Pill Shape */
+  
+  /* The Halo Effect */
+  box-shadow: 0 0 10px rgba(247, 147, 26, 0.3); 
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Snappy transition */
+}
+
+/* 2. The Interaction State (Fill + Intensify) */
+.btn-btc-pill:hover, 
+.btn-btc-pill:active, 
+.btn-btc-pill:focus {
+  background-color: #F7931A !important; /* Fill with Bitcoin Orange */
+  color: #FFFFFF !important;           /* Text turns White for contrast */
+  border-color: #F7931A !important;
+  
+  /* Intense Halo */
+  box-shadow: 0 0 15px rgba(247, 147, 26, 0.8); 
+  transform: translateY(-1px); /* Micro-lift effect */
+}
+
+/* --- Bitcoin Button Positioning (The Command Deck) --- */
+#btc_donate {
+  position: absolute !important;
+  top: 15px !important;    /* Distance from the very top */
+  right: 70px !important;  /* Distance from the right wall (clears the hamburger) */
+  z-index: 10001 !important; /* Ensures it sits on top of everything */
+  
+  /* Micro-adjustment to match the header height if needed */
+  margin: 0 !important; 
+}
+
+/* Optional: Mobile adjustments (Prevents overlap on small screens) */
+@media (max-width: 768px) {
+  #btc_donate {
+    right: 60px !important;
+    padding: 6px 12px !important;
+    font-size: 0.8em !important;
+  }
+}
+
+
+/* --- Download Button (Command Deck Positioning) --- */
+#openDownloadOptions {
+  /* Absolute positioning relative to the tab content */
+  position: absolute !important;
+  top: 12px !important;    /* Match the top alignment of the toolbar inputs */
+  
+  /* POSITIONING MATH:
+     Search Input (~200px) + Length Input (~120px) + Gaps (~40px) + Right Margin (25px) 
+     = ~385px from the right edge.
+     We set it to 450px to be safe and sit to the left of the Search bar.
+  */
+  right: 325px !important; 
+  
+  z-index: 100 !important; /* Float above everything */
+  
+  /* --- CYAN DARK PILL AESTHETIC --- */
+  background-color: #1E1E1E !important; /* Dark Core */
+  color: var(--accent-primary) !important;            /* Moonstone Text */
+  border: 1px solid var(--accent-primary) !important; /* Moonstone Border */
+  border-radius: 50px !important;       /* Pill Shape */
+  padding: 6px 15px !important;         /* Compact Padding to match inputs */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  
+  /* Neon Halo */
+  box-shadow: 0 0 5px var(--glow-subtle);
+  transition: all 0.3s ease;
+}
+
+/* Hover State */
+#openDownloadOptions:hover {
+  background-color: var(--accent-primary) !important; /* Fill with Cyan */
+  color: #111 !important;              /* Dark Text */
+  box-shadow: 0 0 15px var(--glow-medium); /* Intense Glow */
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+/* --- TABS ADJUSTMENT --- */
+/* Important: We need to increase the padding on the tabs so they don't slide under our new button */
+ul#main_app_tabs.nav-pills {
+    /* Increased from 400px to 600px to accommodate the button */
+    padding-right: 400px !important; 
+}
+
+/* Mobile Adjustment */
+@media (max-width: 900px) {
+  #openDownloadOptions {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+/* Sticky Footer Logic */
+body { margin-bottom: 35px; } /* Prevent table from hiding behind footer */
+
+.thin-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #222; /* Matches Darkly theme */
+  border-top: 1px solid #444;
+  z-index: 9999;
+  font-size: 12px;
+  text-align: right;
+  padding-right: 25px;
+  color: #888;
+}
+
+.thin-footer a {
+  color: var(--accent-primary); /* Matches your Cyan accents */
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.thin-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Forces a cushion at the bottom of EVERY data table in the app */
+.dataTables_wrapper {
+  margin-bottom: 25px !important;
+}
+
+/* ==========================================================================
+   THE STABLE FIX: NO PHYSICS, JUST COLOR
+   ========================================================================== */
+
+/* 1. THE MASTER ROW */
+table.dataTable tbody tr:hover {
+    background-color: #2A2B32 !important; 
+    
+   /* transform: scale(1.002); 
+    transition: all 0.1s;    
+    /* We keep the shadow, but make it purely visual (no movement) */
+    /*box-shadow: 
+        -4px 0 0 var(--accent-secondary),
+        0 5px 15px rgba(0,0,0,0.5) !important;
+        */
+    z-index: 100;
+    position: relative;
+}
+
+
+
+/* --- DT TABLE STABILITY FIXES --- */
+
+/* 1. Allow headers to be resized by the user (Native Browser Feature) */
+.dataTables_scrollHeadInner th,
+.dataTables_scrollHeadInner td {
+  position: relative;
+  resize: horizontal;  /* <--- The Magic: Adds a drag handle */
+  overflow: hidden;    /* Required for resize to work */
+  min-width: 50px;     /* Safety guard */
+}
+
+/* 2. Abstract Column Control */
+/* We create a scrollable box for the abstract text */
+.abstract-scroll-box {
+  max-height: 150px;       /* Cap the height */
+  overflow-y: auto;        /* Scroll internally if text is long */
+  overflow-x: hidden;
+  white-space: normal;     /* Allow wrapping */
+  font-size: 0.9em;        /* Slight visual separation */
+  line-height: 1.4;
+  padding-right: 5px;      /* Space for scrollbar */
+}
+
+/* 3. Force the table layout to be rigid */
+table.dataTable {
+  table-layout: fixed !important; /* Prevents "jumping" widths */
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   QUICK FILTER BUTTONS (Dark Pill Style)
+   ========================================================================== */
+
+#btn_cell_known,
+#btn_virus_known {
+    /* 1. The Core Look */
+    background-color: #1E1E1E !important;  /* Dark Core */
+    color: var(--accent-primary) !important;             /* Moonstone Text */
+    border: 1px solid var(--accent-primary) !important;  /* Moonstone Border */
+    border-radius: 50px !important;        /* Full Pill Shape */
+    
+    /* 2. Typography & Spacing */
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    font-size: 0.85em !important;          /* Keep it compact */
+    padding: 4px 12px !important;          /* Clean internal spacing */
+    
+    /* 3. The Glow */
+    box-shadow: 0 0 5px var(--glow-subtle) !important; 
+    transition: all 0.2s ease-in-out !important;
+    
+    /* 4. Alignment Override */
+    margin-top: 5px !important;
+    width: 100% !important;
+}
+
+/* --- HOVER STATE (Fill & Intensify) --- */
+#btn_cell_known:hover,
+#btn_virus_known:hover {
+    background-color: var(--accent-primary) !important;  /* Fill with Cyan */
+    color: #111 !important;               /* Dark Text for contrast */
+    box-shadow: 0 0 15px var(--glow-medium) !important; /* Neon Glow */
+    transform: translateY(-1px);
+    cursor: pointer;
+}
+
+/* --- ACTIVE/CLICK STATE --- */
+#btn_cell_known:active,
+#btn_virus_known:active {
+    transform: translateY(1px); /* Press down effect */
+    box-shadow: 0 0 5px var(--glow-intense) !important;
+}
+
+/* ==========================================================================
+   DOWNLOAD BUTTONS (Nuclear Specificity Fix - Brand Colors)
+   ========================================================================== */
+
+/* 1. Base Pill Style */
+html body .modal-content a.btn-download-pill {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    background-color: #1E1E1E !important;
+    border-radius: 50px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    padding: 12px 25px !important;
+    
+    /* FORCE CLICKABILITY */
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    text-decoration: none !important;
+    position: relative !important;
+    
+    /* FLEX LAYOUT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* 2. CSV Variant (Excel Green) */
+html body .modal-content a.btn-download-pill.csv {
+    color: #2ecc71 !important;              /* Vibrant Green */
+    border: 1px solid #2ecc71 !important;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2) !important;
+}
+
+/* CSV HOVER */
+html body .modal-content a.btn-download-pill.csv:hover,
+html body .modal-content a.btn-download-pill.csv:focus {
+    background-color: #2ecc71 !important;
+    color: #111 !important;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.6) !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+}
+
+/* 3. Zotero Variant (Brand Red) */
+html body .modal-content a.btn-download-pill.ris {
+    color: #ff5252 !important;              /* Red Accent */
+    border: 1px solid #ff5252 !important;
+    box-shadow: 0 0 5px rgba(255, 82, 82, 0.2) !important;
+}
+
+/* ZOTERO HOVER */
+html body .modal-content a.btn-download-pill.ris:hover,
+html body .modal-content a.btn-download-pill.ris:focus {
+    background-color: #ff5252 !important;
+    color: #fff !important;                 /* White text looks better on red */
+    box-shadow: 0 0 20px rgba(255, 82, 82, 0.6) !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+}
+
+/* 4. EndNote Variant (Deep Blue) */
+html body .modal-content a.btn-download-pill.enw {
+    color: #448aff !important;              /* Deep Blue (Brightened slightly for Dark Mode) */
+    border: 1px solid #448aff !important;
+    box-shadow: 0 0 5px rgba(68, 138, 255, 0.2) !important;
+}
+
+/* ENDNOTE HOVER */
+html body .modal-content a.btn-download-pill.enw:hover,
+html body .modal-content a.btn-download-pill.enw:focus {
+    background-color: #448aff !important;
+    color: #fff !important;                 /* White text for contrast on blue */
+    box-shadow: 0 0 20px rgba(68, 138, 255, 0.6) !important;
+    transform: translateY(-2px) !important;
+    text-decoration: none !important;
+}
+
+/* ==========================================================================
+   MODAL PREVIEW STAGE (Dynamic)
+   ========================================================================== */
+.theme-preview-stage {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px dashed var(--accent-primary) !important; /* Dynamic Border */
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Dynamic Glow injected by JS */
+    box-shadow: 0 0 15px var(--glow-color) !important; 
+}
+
+/* ==========================================================================
+   THEME SELECTOR: DARK PILL EDITION
+   ========================================================================== */
+
+/* 1. The Container: Add gaps between the buttons */
+#theme_selector .btn-group {
+    display: flex;
+    gap: 10px;               /* Space between the pills */
+    width: 100%;
+    justify-content: center;
+}
+
+/* 2. The Buttons (The "Dark Pill" Base) */
+#theme_selector .btn {
+    /* --- MATCHING YOUR DATATABLES TOOLBAR STYLE --- */
+    background-color: #222 !important;      /* Dark Background */
+    border: 1px solid #555 !important;      /* Subtle Border */
+    color: #eee !important;                 /* Light Text */
+    border-radius: 20px !important;         /* Full Pill Shape */
+    
+    /* Layout & Type */
+    padding: 8px 20px !important;           /* Comfortable padding */
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    
+    /* Depth & Transition */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); /* Inner shadow for depth */
+    transition: all 0.2s ease-in-out;
+    flex-grow: 1;                           /* Even width */
+    margin: 0 !important;                   /* Reset bootstrap margins */
+}
+
+/* 3. Hover State (Lighten + Subtle Glow) */
+#theme_selector .btn:hover {
+    background-color: #333 !important;
+    border-color: #777 !important;
+    color: #fff !important;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 4. Active/Selected State (The "Ignition") */
+/* When selected, it takes on the color of the CURRENT theme */
+#theme_selector .btn.active {
+    background-color: #222 !important;      /* Keep dark base */
+    border-color: var(--accent-primary) !important;       /* Theme Border */
+    color: var(--accent-primary) !important;              /* Theme Text */
+    
+    /* The "Moonstone Glow" from your inputs */
+    box-shadow: 0 0 10px var(--glow-medium), inset 0 0 5px rgba(0,0,0,0.5) !important;
+    
+    opacity: 1;
+    z-index: 2; /* Ensure glow sits on top */
+}
+
+/* 5. Specific Tweaks for Icon alignment */
+#theme_selector .btn i {
+    margin-right: 6px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   CUSTOM HAMBURGER BUTTON (Outline Glow Edition)
+   ========================================================================== */
+
+/* 1. Target the custom class */
+.hamburger-btn {
+    background-color: transparent !important; /* Start Transparent */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Mechanical feel */
+    border: 1px solid #444 !important; /* Default subtle border (replaces your old inline style) */
+    border-radius: 4px !important; 
+    color: #ccc !important; /* Default grey icon */
+}
+
+/* 2. HOVER STATE: Outline + Theme Glow (No Fill) */
+.hamburger-btn:hover {
+    background-color: transparent !important; 
+    color: var(--accent-primary) !important; /* Icon turns Theme Color */
+    border: 1px solid var(--accent-primary) !important; /* Border turns Theme Color */
+    
+    /* The Glow Effect: Uses your theme variables */
+    box-shadow: 0 0 10px var(--glow-color), inset 0 0 5px var(--glow-subtle);
+}
+
+/* 3. CLICK/ACTIVE STATE: Solid Fill */
+.hamburger-btn:active,
+.hamburger-btn:focus {
+    background-color: var(--accent-primary) !important; /* Solid Theme Fill */
+    color: var(--bg-dark) !important; /* Dark icon for contrast against bright fill */
+    box-shadow: 0 0 15px var(--glow-medium); 
+    border: 1px solid var(--accent-primary) !important;
+}
+
+/* ==========================================================================
+   PLOTINATOR REPAIRS (Dates & Dropdowns)
+   ========================================================================== */
+
+/* ==========================================================================
+   GOLD STANDARD DATE PILL (The Fix)
+   ========================================================================== */
+
+/* 1. The Container (The Pill Shell) */
+/* We override display: table to use Modern Flexbox */
+.shiny-date-range-input .input-daterange {
+    display: flex !important;           
+    align-items: center !important;     
+    justify-content: space-between !important;
+    
+    background-color: #2b2b2b !important; /* Dark Grey Core */
+    border: 1px solid #555 !important;    /* The Shell Border */
+    border-radius: 50px !important;       /* Full Pill Shape */
+    padding: 0 10px !important;           /* Space inside the shell */
+    height: 38px !important;              /* Enforce standard height */
+    width: 100% !important;
+    overflow: hidden !important;          /* Clip anything square inside */
+}
+
+/* 2. The Inputs (Start & End Date) */
+.shiny-date-range-input .input-daterange input {
+    background: transparent !important;   /* No background */
+    border: none !important;              /* No borders */
+    box-shadow: none !important;          /* No shadows */
+    color: #fff !important;               /* White Text */
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9em !important;
+    
+    /* FLEX MAGIC: Share space equally, don't wrap */
+    flex: 1 !important; 
+    min-width: 0 !important;              /* Allow shrinking if needed */
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;                /* Remove default padding */
+}
+
+/* 3. The "to" Separator (The "Old Div" Remover) */
+.shiny-date-range-input .input-daterange .input-group-addon {
+    background-color: transparent !important; /* KILL THE GREY BOX */
+    border: none !important;
+    color: #aaa !important;               /* Muted text color */
+    font-weight: 300 !important;
+    padding: 0 5px !important;            /* Minimal spacing */
+    
+    /* Flex behavior */
+    flex: 0 0 auto !important;            /* Don't grow or shrink */
+    width: auto !important;
+}
+
+/* 4. Focus State (Glow on the Shell, not the inputs) */
+/* We trick CSS into lighting up the container when an input inside is focused */
+.shiny-date-range-input .input-daterange:focus-within {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 10px var(--glow-subtle) !important;
+}
+
+/* ==========================================================================
+   DROPDOWN DOUBLE PILL FIX
+   ========================================================================== */
+
+/* 1. Make the Outer Wrapper Invisible */
+/* This removes the "ghost" pill surrounding the actual button */
+.bootstrap-select {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important; /* Remove any padding causing the gap */
+}
+
+/* 2. Style the Inner Button (The "Real" Pill) */
+.bootstrap-select > .dropdown-toggle {
+    background-color: #2b2b2b !important; /* Dark Core */
+    border: 1px solid #555 !important;    /* Border */
+    color: #fff !important;               /* Text */
+    border-radius: 50px !important;       /* Full Pill Shape */
+    
+    padding: 6px 12px 6px 20px !important; /* Adjust padding for better text alignment */
+    height: auto !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Hover State for the Button */
+.bootstrap-select > .dropdown-toggle:hover,
+.bootstrap-select > .dropdown-toggle:active,
+.bootstrap-select > .dropdown-toggle:focus {
+    background-color: #333 !important;    /* Lighter on hover */
+    border-color: var(--accent-primary) !important; 
+    color: #fff !important;
+    box-shadow: 0 0 10px var(--glow-subtle) !important;
+    outline: none !important !important;
+}
+
+/* 4. Kill the White Focus Ring (The "Rectangle" ghost) */
+.bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+    outline-offset: 0 !important;
+}
+
+/* ==========================================================================
+   APPLY FONT BUTTON (Dark Pill & Alignment)
+   ========================================================================== */
+
+#applyFont {
+    /* 1. Dark Pill Base */
+    background-color: #2b2b2b !important;   /* Match Input Background */
+    border: 1px solid #555 !important;      /* Match Input Border */
+    color: #eee !important;                 /* White Text */
+    border-radius: 50px !important;         /* Pill Shape */
+    
+    /* 2. Height & Layout Locking */
+    height: 38px !important;                /* Exact match for standard inputs */
+    padding: 0 20px !important;             /* Horizontal padding only */
+    display: inline-flex !important;        /* Flexbox for centering text/icon */
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;            /* Remove external margins */
+    
+    /* 3. Transition */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover State (Theme Glow) */
+#applyFont:hover {
+    border-color: var(--accent-primary) !important;
+    color: var(--accent-primary) !important;
+    box-shadow: 0 0 10px var(--glow-subtle);
+    background-color: #333 !important;      /* Slightly lighter */
+    cursor: pointer;
+}
+
+/* Active State */
+#applyFont:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 5px var(--glow-subtle);
+}

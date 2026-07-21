@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lab Notebook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="dashboard_files/libs/clipboard/clipboard.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-html/popper.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="dashboard_files/libs/quarto-html/anchor.min.js"></script>
+<link href="dashboard_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="dashboard_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="dashboard_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="dashboard_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="dashboard_files/libs/bootstrap/bootstrap-8ccf18d214504666cfccbc0b5adfe8c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-dark-8ccf18d214504666cfccbc0b5adfe8c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="dashboard_files/libs/bootstrap/bootstrap-8ccf18d214504666cfccbc0b5adfe8c3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="dashboard_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="dashboard_files/libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="dashboard_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="dashboard_files/libs/quarto-dashboard/components.js"></script>
+
+<link href="dashboard_files/libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="dashboard_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+
+<script src="dashboard_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="dashboard_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="dashboard_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="dashboard_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="dashboard_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard fullcontent quarto-light">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Lab Notebook</a></div>
+        
+        
+      </div>
+    </div>
+</div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container dashboard-scrolling">  
+
+<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="flow" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="datatables html-widget html-fill-item html-fill-container" id="htmlwidget-a6e202acf0176e878f44" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a6e202acf0176e878f44">{"x":{"filter":"none","vertical":false,"data":[["2026-02-13T12:00:00Z","2026-02-13T12:00:00Z","2026-02-13T12:00:00Z","2026-02-13T02:55:58Z","2026-02-13T01:56:09Z","2026-02-12T21:14:01Z","2026-02-12T18:55:28Z","2026-02-12T18:46:18Z","2026-02-12T13:37:22Z","2026-02-12T13:37:16Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-12T12:00:00Z","2026-02-11T05:38:06Z","2026-02-11T05:35:06Z","2026-02-11T04:02:37Z","2026-02-11T03:49:55Z","2026-02-11T03:36:43Z","2026-02-11T03:36:14Z","2026-02-11T03:21:02Z","2026-02-11T02:55:23Z","2026-02-11T02:50:52Z","2026-02-10T12:40:48Z","2026-02-10T12:40:21Z","2026-02-10T12:40:06Z","2026-02-10T12:00:00Z","2026-02-10T12:00:00Z","2026-01-29T12:00:00Z","2026-01-29T12:00:00Z","2026-01-29T12:00:00Z","2026-01-29T12:00:00Z"],["<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Indogenous trim 23\n- Sample: IP Control Mouse V5 Antibody\n- Titer: 0.0\n- Status: Valid\n- Note: {'sample_id': 'IP Control Mouse V5 Antibody', 'titer': None, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** endogenous trim 23 IP\n- Sample: Control\n- Titer: 0.0\n- Status: None\n- Note: {'sample_id': 'Control', 'titer': None, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** endogenous trim 23 IP\n- Sample: Sample A\n- Titer: 0.0\n- Status: None\n- Note: {'sample_id': 'Sample A', 'titer': None, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So back to thoughts on the US3 mechanism, you know, the entire field has, you know, really  gone from this high replication, high immune stimulation kind of, you know, goal for their  viruses, right? You want lots of oncolysis, lots of direct killing, lots of innate immune  stimulation. And so a really kind of novel or new or unconventional direction would be,  you know, maybe you don't want something that replicates all that much. Maybe you want something  that doesn't replicate much, but still screams very loudly and is able to activate the innate  immune system. And that's kind of where this US3 virus might be able to fit in. If we can  show that, you know, it won't replicate very well, it's transient, yet it still pokes all  these holes in these tumor cells to really kind of stimulate the, it stimulates the dendritic cell  to come and investigate the thing. Whereby you have a virus that's coming out of favor,  like getting, you know, diminished viral antigens during that process. Maybe you favor an  anti-tumor immune response over an anti-viral response. And so this would represent a very  unique modality that's different from a lot of other oncolytic viruses out there that are going  for both high replication, high innate immune stimulation. Because you can't get, with high  replication, you wouldn't be able to get around that, you know, that issue of you have all of  these gobs of viral antigens around. And so maybe you favor the viral immune response over the  anti-tumor immune response. So that's kind of where this US3 virus could sit if that is the case  and what's happening.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Idea<\/span><strong>US3 virus could be a unique modality for oncolytic therapy, favoring anti-tumor immune response over anti-viral response.<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Data<\/span><strong>High replication and high innate immune stimulation viruses are losing favor due to issues with viral antigens and immune response<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Protocol<\/span><strong>Testing the US3 virus for its ability to activate the innate immune system without replicating excessively could be a novel approach.<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>Current oncolytic viruses have limitations due to their high replication and immune stimulation, leading to diminished viral antigens<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Todo<\/span><strong>Investigate the US3 virus's ability to stimulate dendritic cells and activate an anti-tumor immune response<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So, in the 96 well cell death experiment for me to 18 hours, there was a lot of epoxone  green precipitates, which kind of looked a lot like contamination.  I tried to wash them out with a couple 300 microliter PBS washes, apparently that was  bad idea because it wasn't really bacteria, but it was these precipitates.  Anyway, so I had this MOI 5 infection and I ended up washing out a bunch of FR and E,  but surprisingly the U isolate was pretty stable in there, and so it's kind of  funny. So it's like it's like a lot it's a lot more attached onto the dish right  and I don't know I was thinking about this a little more like okay so this could  feed into the whole extended release kind of thing so like maybe like you're  replicating viruses are too fast right maybe they're not around for long  enough until they can get like a dendritic cell or something to come by  to come scoop up the infected cell and the tumor antigen really started  immune response all right so maybe what if they are able to sit in place a  little longer and what was weird was there was also very faint of the AAD 5  red staining in the US 3 deletion infection and so I'll need to repeat  this experiment to not wash off the other infected lysates to confirm that  this is specific but you know based on the snippets I was able to look at from  F and R and E there was not a lot of red staining so this could be I don't know  if it's noise it doesn't look quite like noise but it is faint and not to  mention all the cell membranes are they are very roughly looking you know and  I've always assumed this was you know some kind of weird you know contain  thing or something but you know maybe it's not maybe it is some kind of weird  form of cell death maybe US 3 apparently has some associations with actin and  cytosackelital structure during infection and that he may be responsible  for remodeling the infected cell into that super rounded CPE I'll have to  double-check this but by deleting US 3 from this virus effectively we've made a  cancer cell that sits in place it's a little perforated hence the faint red  staining but just a little bit but that's enough hopefully for dendritic  cell to come by and say hey what the hell is this thing and not to mention  that you know it yeah I guess it's a different rather so rather than the  dendritic cell macrophage or something picking up an antigen from  extracellular space from a lysed cell I don't know how great of an  immunogenic process that is this is a little unique where you have a cell that  sits there it's super damaged but and then the dendritic cell can come along  see it and then can come along see it and then they will you know maybe that  alter that that's an alternative form of priming rather than that just an  extracellular antigen that it comes across maybe that it is a little more  immunogenic than it would be if it was just a loose antigen out there so that  is definitely worth looking at a little more looking I'm standing for a tovachy  and then we have to dive into this mechanism a little more and figure out  how does if if this is true if he's stable and this stable phenotype is  capable of priming a T cell response a little better how do we prove that in a  paper you know what infections and stuff would we need to do what proteins  to probe for to see whether or not this might be active and going about so  interesting experiment nonetheless<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>Cells appear detached.<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Todo<\/span><strong>Order more media.<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Data<\/span><strong>MOI 5 infection, U isolate stable<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Protocol<\/span><strong>PBS washes to remove FR and E<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Idea<\/span><strong>Extended release mechanism: viruses could be stable long enough for dendritic cell uptake<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>Faint red staining in US 3 deletion infection<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Todo<\/span><strong>Repeat experiment to confirm specific results<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Data<\/span><strong>AAD 5 red staining faint and variable<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Idea<\/span><strong>Possible association with actin and cytoskeletal structure during infection<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>so for Mia 96 well I stained at 1 45 p.m. we're doing incubation for 40 minutes  in the dark followed by fixing<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>For experiments, you MUST include <\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So, for the transfection infection experiment, I mixed the V5 trim 23 or GFP plasmid, took  160 microliters, which correlates to 16 micrograms, I added in 760 microliters of optimum, and  then 32 microliters of lipo 3000, or plus 48 microliters of P3000, let that incubate for  at least 10 minutes while I prepped the cells, I spun those down, and then I took the transfection  mixture, added it to that, so that was 1 mil, added it to 12 mils, or I should say 11 mils  of optimum, and then I plated that 3 mils per 10 centimeter plate, and then let that sit  for 10 to 15 minutes while I continued to prep the cells, counted cells, plated 4 million  per 10 centimeter on top of the transfection mixture, I then, on top of the transfection  mixture, and yeah, the cells were split at 1 to 2, 3 days ago, so they were super-confluent,  they took a very long time to trypsinize, so they were probably overly-confluent and  a little starved or something, so keep that in mind as well.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>General<\/span><strong>So, for the transfection infection experiment, I mixed the V5 trim 23 or GFP plasmid, took  160 microliters, which correlates to 16 micrograms, I added in 760 microliters of optimum, and  then 32 microliters of lipo 3000, or plus 48 microliters of P3000, let that incubate for  at least 10 minutes while I prepped the cells, I spun those down, and then I took the transfection  mixture, added it to that, so that was 1 mil, added it to 12 mils, or I should say 11 mils  of optimum, and then I plated that 3 mils per 10 centimeter plate, and then let that sit  for 10 to 15 minutes while I continued to prep the cells, counted cells, plated 4 million  per 10 centimeter on top of the transfection mixture, I then, on top of the transfection  mixture, and yeah, the cells were split at 1 to 2, 3 days ago, so they were super-confluent,  they took a very long time to trypsinize, so they were probably overly-confluent and  a little starved or something, so keep that in mind as well.<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So for the mia-pancatoo cell death experiment,  I plated cells at 800K per six well,  and then infected them for 18 hours.  At 16 hours, I added 1 microgram per mil actinomycin D  to that control well, and then harvested them  for Western blot and RNA at 18 hours post-infection.  So for RNA, I added 35 microliters of beta mercaptanol  per 3.5 mils of RLT lysis buffer.  I did 350 microliters of that per well,  and then froze those directly at minus 80  without doing the column extraction yet.  And then for Western blot, I pipetted.  Well, for both experiments, for both sets,  I pipetted to collect the cells.  They all sloughed off the dish rather easily,  so I didn't need a cell scraper.  And then I didn't need the cell scraper,  and then spun them down and resuspended in 1 mil PBS,  spun them down again, 3K for five minutes,  and then added either 100 microliters of RIPA  with Halt-Pertiase inhibitor or the 350 microliters  of the RLT lysis buffer with BME.  And then for Western, I sonicated and boiled  the samples as well.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>General<\/span><strong>So for the mia-pancatoo cell death experiment,  I plated cells at 800K per six well,  and then infected them for 18 hours.  At 16 hours, I added 1 microgram per mil actinomycin D  to that control well, and then harvested them  for Western blot and RNA at 18 hours post-infection.  So for RNA, I added 35 microliters of beta mercaptanol  per 3.5 mils of RLT lysis buffer.  I did 350 microliters of that per well,  and then froze those directly at minus 80  without doing the column extraction yet.  And then for Western blot, I pipetted.  Well, for both experiments, for both sets,  I pipetted to collect the cells.  They all sloughed off the dish rather easily,  so I didn't need a cell scraper.  And then I didn't need the cell scraper,  and then spun them down and resuspended in 1 mil PBS,  spun them down again, 3K for five minutes,  and then added either 100 microliters of RIPA  with Halt-Pertiase inhibitor or the 350 microliters  of the RLT lysis buffer with BME.  And then for Western, I sonicated and boiled  the samples as well.<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>For my to-do list, I need to order new primers.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>ToDo<\/span><strong>Order new primers<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So for my to-do list, I need to start new Vero cells today and then go talk to Ashley.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>ToDo<\/span><strong>Start new Vero cells<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>ToDo<\/span><strong>Talk to Ashley<\/strong><\/div><\/div><\/details>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** mia-pancatoo Cell Death Experiment\n- Sample: Control\n- Titer: 800000.0\n- Status: Valid\n- Note: {'sample_id': 'Control', 'titer': 800000, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** mia-pancatoo Cell Death Experiment\n- Sample: Sample A\n- Titer: 0.0\n- Status: Valid\n- Note: {'sample_id': 'Sample A', 'titer': 0, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** transfection infection experiment\n- Sample: control\n- Titer: 0.0\n- Status: None\n- Note: {'sample_id': 'control', 'titer': None, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** transfection infection experiment\n- Sample: V5 trim 23 or GFP plasmid\n- Titer: 16.0\n- Status: None\n- Note: {'sample_id': 'V5 trim 23 or GFP plasmid', 'titer': 16, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** transfection infection experiment\n- Sample: Optimum\n- Titer: 760.0\n- Status: None\n- Note: {'sample_id': 'Optimum', 'titer': 760, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** transfection infection experiment\n- Sample: Lipo 3000\n- Titer: 32.0\n- Status: None\n- Note: {'sample_id': 'Lipo 3000', 'titer': 32, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** transfection infection experiment\n- Sample: P3000\n- Titer: 48.0\n- Status: None\n- Note: {'sample_id': 'P3000', 'titer': 48, 'status': None}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Lysis Buffer\n- Sample: Sample 1\n- Titer: 0.0\n- Status: Valid\n- Note: {'sample_id': 'Sample 1', 'titer': None, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Lysis Buffer\n- Sample: Sample 2\n- Titer: 0.0\n- Status: Valid\n- Note: {'sample_id': 'Sample 2', 'titer': None, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Lysis Buffer\n- Sample: Sample 3\n- Titer: 0.0\n- Status: Valid\n- Note: {'sample_id': 'Sample 3', 'titer': None, 'status': 'Valid'}<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>Can you really write a grant on  just technology development like an oncolytic bacteria virus?  I don't know a  Lot of it too is like you want  To uncover real biology, so make sure you don't  Get lost in just the technology development kind of thing  So this is an observation<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>Be careful not to get too caught up in technology development<\/strong><\/div><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>ToDo<\/span><strong>Ensure technology development aligns with biology goals<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>Can you really write a grant on  just technology development like an oncolytic bacteria virus?  I don't know a  Lot of it too is like you want  To uncover real biology, so make sure you don't  Get lost in just the technology development kind of thing  So this is an observation<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>General<\/span><strong>{'notes': [{'type': 'note', 'text': 'Can you really write a grant on just technology development like an oncolytic bacteria virus?'}, {'type': 'Idea', 'text': \"Don't get lost in just the technology development kind of thing\"}]}<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So, tomorrow I need to order primers and then I also need to talk to Ashley about IDT primers  as well, and that's for my to-do list.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>ToDo<\/span><strong>Order primers; Talk to Ashley about IDT primers<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So tomorrow I need to infect the pancreatic cancer cells.  I also need to harvest my virus and I also need to clone a plasmid.  Those are the things for my to-do list.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>To-do list: Infect pancreatic cancer cells; Harvest virus; Clone plasmid.<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>So that really just comes back to, you know, if you do want to do something crazy, like  an oncolytic bacteria that shoots off oncolytic viruses, you know, proof of concept is really  kind of what you would want to go for.  And you know, this kind of extended release idea, right?  So a bacteria that releases virions, maybe acid-stable ones or, you know, virus-like particles  that are acid-stable and can infect the tumor cell, but maybe they don't get a new round  of replication, right?  Maybe they're wild type, not necessarily wild type, but maybe their encoded actual viral capsid  and envelope isn't really all that amendable for the acidic tumor environment.  Maybe they don't get a second round of replication.  So that could be a decent way to go about it.  So your virus-like particle is targeted specifically towards the cancer and then whatever comes  out doesn't undergo another round, but it does kill the cancer cell that infected, which  would be a good thing.  So don't forget to make your virus-like franken particle to be acid-stable.<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Observation<\/span><strong>Extended release idea for oncolytic bacteria, where virions are released and target cancer cells without undergoing replication. This approach requires creating acid-stable virus-like particles to ensure effectiveness in the acidic tumor environment.<\/strong><\/div><\/div><\/details>","<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>No, the problem with herpes simplex vectors is that, you know, they still integrate into the host,  which is not ideal for a transient therapy, right? So like, how do you get rid of that?  How do you like to use a different virus? Do you treat it somehow? Like, how do you get rid of it?<\/div><details><summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>Show AI Extractions<\/summary><div style='margin-top: 5px; margin-left: 10px;'><div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'><span class='badge bg-secondary' style='margin-right:6px;'>Discussion<\/span><strong>Herpes simplex vectors integrate into the host, which is not ideal for transient therapy. Alternative viruses and treatment methods need to be explored.<\/strong><\/div><\/div><\/details>","<div style='font-weight: 600; color: #555;'>Extended release idea for oncolytic bacteria; potential benefits include targeted cancer infection without subsequent replication, and acid-stable virus-like particles.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Observation<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>Considering transient vectors like adenoviruses or RNA viruses for cancer therapy could be a viable alternative to integrating herpes simplex vectors, but it comes with trade-offs regarding the size of the genome and potential long-term effects on the immune system.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Idea<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>Cleaned up text of what the user said.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Idea<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>This athletic virus will be enabled in the acidic T.M.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Protocol<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>Slow rotation of the roller bottle after addition of inoculum to allow for quick and even coating of infection throughout the whole bottle.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Protocol<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>Oncolytic virus engineered to be pH stable in an acidic environment.<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Protocol<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Exp_2026-01-29\n- Sample: Sample1\n- Titer: 1500000.0\n- Status: Valid\n- Note: Cloudy morphology<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** Exp_2026-01-29\n- Sample: Sample2\n- Titer: 825000.0\n- Status: Flagged\n- Note: Unusual growth patterns<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** OV101\n- Sample: Sample 1\n- Titer: 1000000.0\n- Status: Valid\n- Note: Not specified<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** OV101\n- Sample: Sample 2\n- Titer: 10000.0\n- Status: Flagged\n- Note: Looks weird<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** OV102\n- Sample: Sample 1\n- Titer: 1000000.0\n- Status: Valid<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>","<div style='font-weight: 600; color: #555;'>**[ARCHIVED DATA]** OV102\n- Sample: Sample 2\n- Titer: 8000000.0\n- Status: Flagged<\/div><div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'><span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>Data<\/span>[Legacy Data]<\/div>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Date<\/th>\n      <th>Entry<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"bPaginate":false,"dom":"ftp","language":{"info":"Showing _TOTAL_ entries"},"pageLength":10,"autoWidth":false,"columnDefs":[{"width":"150px","targets":0},{"className":"dt-left","targets":"_all"},{"name":"Date","targets":0},{"name":"Entry","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card valuebox cell bslib-card html-fill-container bslib-value-box bg-primary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="mic" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-mic"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Total Recordings
+</p>
+<p class="value-box-value">
+38
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card valuebox cell bslib-card html-fill-container bslib-value-box bg-secondary showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="clock" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-clock"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Latest Activity
+</p>
+<p class="value-box-value">
+-9.1 hrs ago
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<img src="dashboard_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>

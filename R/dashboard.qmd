@@ -1,0 +1,158 @@
+---
+title: "Lab Notebook"
+format: 
+  dashboard:
+    orientation: rows
+    scrolling: true
+    theme: cosmo
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(RSQLite)
+library(tidyverse)
+library(DT)
+
+# 1. CONNECT
+db_loc <- "lab_notebook.db"
+if(!file.exists(db_loc)) db_loc <- "C:\\Users\\chase\\Documents\\Everything_Python\\lab_notebook.db"
+con <- dbConnect(RSQLite::SQLite(), db_loc)
+
+# 2. FETCH RAW DATA
+raw_data <- tryCatch({
+  dbGetQuery(con, "SELECT timestamp, category, content, raw_transcript FROM lab_notes ORDER BY timestamp DESC") %>%
+  as_tibble() %>%
+  mutate(timestamp = as.POSIXct(timestamp, tz = "UTC"))
+}, error = function(e) tibble())
+
+dbDisconnect(con)
+
+# 3. PROCESS DATA (Split -> Group -> Recombine)
+if(nrow(raw_data) > 0) {
+  
+  # --- PART A: Modern Entries (Group by Transcript) ---
+  df_modern <- raw_data %>%
+    filter(!is.na(raw_transcript) & raw_transcript != "") %>%
+    # Create the HTML for each individual tag
+    mutate(
+      tag_html = paste0(
+        "<div style='margin-top: 4px; padding: 6px; background: #f8f9fa; border-left: 3px solid #007bff; border-radius: 2px; font-size: 0.9em; color: #444;'>",
+        "<span class='badge bg-secondary' style='margin-right:6px;'>", category, "</span>",
+        "<strong>", content, "</strong>",
+        "</div>"
+      )
+    ) %>%
+    # SQUASH: Combine all tags for one recording
+    group_by(timestamp, raw_transcript) %>%
+    summarize(
+      combined_tags = paste(tag_html, collapse = ""),
+      .groups = "drop"
+    ) %>%
+    # FORMAT: The final display HTML
+    mutate(
+      display = paste0(
+        # The Transcript (Visible)
+        "<div style='margin-bottom: 6px; font-size: 1.05em; color: #2c3e50; font-weight: 500;'>", 
+        raw_transcript, 
+        "</div>",
+        
+        # The Dropdown (Hidden)
+        "<details>",
+        "<summary style='color: #888; font-size: 0.8em; cursor: pointer; font-weight:600;'>",
+        "Show AI Extractions",
+        "</summary>",
+        "<div style='margin-top: 5px; margin-left: 10px;'>", 
+        combined_tags, 
+        "</div></details>"
+      )
+    ) %>%
+    select(timestamp, display)
+
+  # --- PART B: Legacy Entries (Keep Separate) ---
+  df_legacy <- raw_data %>%
+    filter(is.na(raw_transcript) | raw_transcript == "") %>%
+    mutate(
+      display = paste0(
+        "<div style='font-weight: 600; color: #555;'>", content, "</div>",
+        "<div style='font-size: 0.8em; color: #999; font-style: italic; margin-top: 4px;'>",
+        "<span class='badge bg-light text-dark' style='border:1px solid #ccc; margin-right:5px;'>", category, "</span>",
+        "[Legacy Data]</div>"
+      )
+    ) %>%
+    select(timestamp, display)
+
+  # --- PART C: Recombine & Sort ---
+  final_df <- bind_rows(df_modern, df_legacy) %>%
+    arrange(desc(timestamp))
+    
+} else {
+  final_df <- tibble(timestamp = as.POSIXct(character()), display = character())
+}
+```
+
+
+
+```{r}
+if(nrow(final_df) > 0) {
+  datatable(
+    final_df %>% select(Date = timestamp, Entry = display),
+    escape = FALSE,
+    rownames = FALSE,
+    options = list(
+      pageLength = 10,
+      dom = 'ftp', 
+      autoWidth = FALSE, # Disable auto to force our custom width
+      columnDefs = list(
+        list(width = '150px', targets = 0), # Fixed width for Date
+        list(className = 'dt-left', targets = '_all')
+      )
+    )
+  )
+} else {
+  print("Notebook is empty.")
+}
+```
+
+```{r}
+#| content: valuebox
+#| title: "Total Recordings"
+list(
+  icon = "mic",
+  color = "primary",
+  value = nrow(final_df)
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Latest Activity"
+if(nrow(final_df) > 0) {
+  last_time <- head(final_df$timestamp, 1)
+  diff <- round(difftime(Sys.time(), last_time, units="hours"), 1)
+  list(icon = "clock", color = "secondary", value = paste0(diff, " hrs ago"))
+} else {
+  list(value = "N/A")
+}
+```
+
+```{r}
+if(nrow(raw_data) > 0) {
+  raw_data %>%
+    count(category) %>%
+    ggplot(aes(x = reorder(category, n), y = n)) +
+    geom_col(fill = "#2c3e50", width = 0.6) +
+    geom_text(aes(label=n), hjust=-0.5, size=3.5) +
+    coord_flip() +
+    theme_minimal() +
+    labs(x = NULL, y = NULL) +
+    theme(
+      panel.grid.major.y = element_blank(),
+      axis.text.y = element_text(size=10, face="bold")
+    )
+}
+```
+
+
+

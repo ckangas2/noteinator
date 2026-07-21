@@ -1,0 +1,19 @@
+# Audio data and processed files
+incoming_audio/
+processed_audio/
+
+# Databases
+*.db
+
+# Python environment
+__pycache__/
+*.py[cod]
+*.class
+.venv/
+venv/
+env/
+.env
+
+# OS specific
+.DS_Store
+Thumbs.db
