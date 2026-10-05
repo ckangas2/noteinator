@@ -56,8 +56,9 @@ openssl rand -hex 24      # upload token — paste into noteinator.env
 tailscale ip -4           # bind address — same
 ```
 
-Set `OLLAMA_MODEL` to something `ollama list` actually shows, tag included. A name that
-doesn't match returns a 404 and every note quietly lands in "General".
+Set `OLLAMA_MODEL` to whatever `ollama list` shows, exact name and tag. Anything in the
+7-9B range handles this fine. A name that doesn't match returns a 404 and every note
+quietly lands in "General".
 
 Start it:
 
@@ -86,33 +87,16 @@ one and wondering why nothing changed is a rite of passage.
 
 ## The phone
 
-Install Tailscale and sign into the same tailnet. Then point your camera at the QR code
-the service prints on startup — it opens a page with one tap-to-copy URL, token included,
-so there's nothing to type. The page also walks through the Shortcut.
+Install Tailscale and sign into the same tailnet, then grab the Shortcut:
 
-The Shortcut itself is five actions:
+**[Add the Lab Note shortcut](https://www.icloud.com/shortcuts/dcaf6faab1b44328bd02d80edb62e591)**
 
-1. **Record Audio** — Start: Immediately, Finish: On Tap
-2. **Save File** — into a `Noteinator/` folder, "Ask Where to Save" off. This is your
-   backup if the upload fails.
-3. **Format Date** — Current Date, ISO 8601, with time
-4. **Get Contents of URL** — paste the URL, method `POST`, header `X-Recorded-At` set to
-   the Formatted Date, and Request Body set to **File** → Recorded Audio. It has to be
-   File; the server will tell you so if you pick Form.
-5. **Show Notification** — Contents of URL, so you see it worked
+It asks for your upload URL on import. Point your camera at the QR code the service prints
+on startup, tap to copy, paste it in. Then put it on the Action Button, a Back Tap, or
+Siri and you're done.
 
-Name it "Lab Note" and put it on the Action Button, a Back Tap, or Siri.
-
-If you keep Tailscale off to save battery, add toggles around the upload step and give it
-a couple of seconds to connect before the POST.
-
-### Passing it to someone else
-
-Set the URL field as an Import Question before sharing, so your token doesn't ride along.
-Then Share → Copy iCloud Link. Whoever gets it installs Tailscale, taps the link, and
-pastes one value from their own QR page.
-
-> **TODO:** add the iCloud link here once the Shortcut is published.
+If you keep Tailscale off to save battery, toggle it around the upload step and give it a
+second or two to connect.
 
 ## Picking a transcription model
 
@@ -171,7 +155,7 @@ clips. If it climbs, check the service log.
 | `NOTEINATOR_VERBOSE` | — | `1` brings back NeMo's full logging |
 | `NOTEINATOR_QR_ASCII` | — | `1` if your terminal mangles the ANSI QR code |
 | `OLLAMA_URL` | `http://127.0.0.1:11434/api/generate` | |
-| `OLLAMA_MODEL` | `llama3.2` | must match `ollama list` exactly |
+| `OLLAMA_MODEL` | — | required; must match `ollama list` exactly |
 | `OLLAMA_TIMEOUT` | `180` | seconds |
 | `WHISPER_MODEL_SIZE` | `small.en` | faster-whisper only |
 | `WHISPER_VOCAB_PROMPT` | — | overrides `NOTEINATOR_VOCAB` for Whisper |

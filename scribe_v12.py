@@ -39,7 +39,7 @@ UPLOAD_PORT = int(os.getenv("NOTEINATOR_UPLOAD_PORT", "8765"))
 MAX_UPLOAD_MB = int(os.getenv("NOTEINATOR_MAX_UPLOAD_MB", "200"))
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://127.0.0.1:11434/api/generate")
-MODEL_NAME = os.getenv("OLLAMA_MODEL", "llama3.2")
+MODEL_NAME = os.getenv("OLLAMA_MODEL", "")  # must match `ollama list` exactly
 LLM_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", "180"))
 
 AUDIO_EXTS = {'.m4a', '.wav', '.mp3'}
@@ -297,6 +297,10 @@ if __name__ == "__main__":
 
     logger.info("--- NOTEINATOR V12 ---")
     logger.info(f"Watching: {WATCH_FOLDER}")
+    if not MODEL_NAME:
+        logger.error("OLLAMA_MODEL is not set. Pick one from `ollama list` "
+                     "(the exact name including the tag) and set it in noteinator.env.")
+        raise SystemExit(1)
     logger.info(f"LLM: {MODEL_NAME} via {OLLAMA_URL}")
 
     worker = Worker(load_transcriber())
