@@ -1,0 +1,15 @@
+[Unit]
+Description=Noteinator voice-to-lab-notebook service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.openclaw/workspace/workspace-code-team/working_noteinator/noteinator
+EnvironmentFile=%h/noteinator.env
+ExecStart=%h/miniforge3/bin/python scribe_v12.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

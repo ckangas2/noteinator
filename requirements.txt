@@ -1,3 +1,16 @@
-faster-whisper
+# Core service
 watchdog
 requests
+
+# Transcription (default backend: parakeet via NeMo)
+nemo_toolkit[asr]
+peft              # required by nemo.collections.speechlm2 (canary)
+numpy
+
+# Optional alternative backend
+faster-whisper
+
+# System dependency, not pip-installable: ffmpeg
+
+# Optional: prints a scannable QR code for phone setup
+qrcode

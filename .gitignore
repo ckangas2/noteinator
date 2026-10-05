@@ -1,19 +1,45 @@
-# Audio data and processed files
+# Secrets and local config — the env file holds the upload token
+noteinator.env
+*.env
+!noteinator.env.example
+
+# Data: recordings and the notebook itself
 incoming_audio/
 processed_audio/
-
-# Databases
+failed_audio/
+*.m4a
+*.wav
+*.mp3
+*.flac
 *.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.bak
 
-# Python environment
+# Generated reports
+asr_comparison.md
+*_only.md
+
+# Models
+*.nemo
+
+# Python
 __pycache__/
 *.py[cod]
-*.class
 .venv/
 venv/
-env/
-.env
+.ipynb_checkpoints/
 
-# OS specific
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# OS / editors
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+*.swp
