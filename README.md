@@ -21,6 +21,10 @@ Noteinator runs as a background service on the lab server:
 
 A folder watcher also runs, so dropping a file into `incoming_audio/` by any means (Syncthing, `scp`, drag and drop) still works.
 
+The transcription model loads on first use and unloads after 5 idle minutes
+(`NOTEINATOR_IDLE_UNLOAD_MINUTES`), so a mostly-idle service holds no GPU memory. The
+first note after a quiet spell costs about 10 seconds of reload.
+
 ## 💻 Tech Stack
 
 - **Transcription:** `parakeet-tdt-0.6b-v2` via NeMo (swappable: Canary-Qwen 2.5B or faster-whisper)
@@ -36,6 +40,8 @@ A folder watcher also runs, so dropping a file into `incoming_audio/` by any mea
 ├── asr.py            # Speech-to-text backends (parakeet / canary / faster-whisper)
 ├── uploader.py       # HTTP upload endpoint for direct phone capture
 ├── compare_asr.py    # Benchmark backends against your own recordings
+├── backfill.py       # Re-process an archive of old recordings
+├── stats.py          # Summary stats for the notebook
 ├── R/                # Analysis and dashboard code
 ├── incoming_audio/   # Where new recordings land
 ├── processed_audio/  # Archive of what's been transcribed
@@ -142,7 +148,13 @@ still accepted and is the better choice if you ever expose this beyond Tailscale
 | `NOTEINATOR_VOCAB` | — | Domain terms; used by `canary` and `faster-whisper` only (Parakeet has no prompt input) |
 | `WHISPER_MODEL_SIZE` | `small.en` | faster-whisper only |
 | `OLLAMA_URL` | `http://127.0.0.1:11434/api/generate` | |
-| `OLLAMA_MODEL` | `llama3.2` | |
+| `OLLAMA_MODEL` | `llama3.2` | Must match `ollama list` exactly, tag included |
+| `OLLAMA_TIMEOUT` | `180` | Seconds to wait for note extraction |
+| `PARAKEET_MODEL` | `nvidia/parakeet-tdt-0.6b-v2` | `-v3` is the multilingual version |
+| `CANARY_MODEL` | `nvidia/canary-qwen-2.5b` | |
+| `WHISPER_VOCAB_PROMPT` | — | Overrides `NOTEINATOR_VOCAB` for faster-whisper |
+| `NOTEINATOR_VERBOSE` | — | `1` restores NeMo's full logging for debugging |
+| `NOTEINATOR_QR_ASCII` | — | `1` draws the setup QR with block characters instead of ANSI colours |
 
 ## 🔬 Choosing a transcription model
 
@@ -153,6 +165,32 @@ python compare_asr.py processed_audio/ --backends parakeet canary faster-whisper
 ```
 
 Parakeet is the default: quality on lab speech matched Canary-Qwen 2.5B in testing, at a quarter of the parameters, which leaves GPU headroom for Ollama. Canary accepts a vocabulary prompt (see `NOTEINATOR_VOCAB`), which Parakeet cannot; worth revisiting if domain terms turn out to be the limiting factor.
+
+## 📊 Checking your notebook
+
+```bash
+python stats.py              # totals, categories, when you record, recent ToDos
+python stats.py --days 30    # just the last month
+```
+
+The figure to watch is the share of notes filed as `General`: those are recordings
+where LLM extraction failed and the raw transcript was saved instead. A few percent is
+normal; a lot means the model or prompt needs attention.
+
+## 📥 Backfilling old recordings
+
+To run an existing archive of audio through the current pipeline:
+
+```bash
+python backfill.py /path/to/old/recordings --dest $NOTEINATOR_BASE_DIR/incoming_audio --dry-run
+python backfill.py /path/to/old/recordings --dest $NOTEINATOR_BASE_DIR/incoming_audio --limit 5
+```
+
+Source files are copied, never modified. It strips the archive prefix scribe_v10 added
+and recovers the real recording time from names like
+`Audio Recording 2026-02-12 at 6.24.09 PM.m4a`, so `recorded_at` reflects when you spoke
+rather than when the files were last copied around. Files whose names carry no date fall
+back to their mtime. Always `--dry-run` first.
 
 ## 🗄️ Database
 
